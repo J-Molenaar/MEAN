@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    		<meta charset="utf-8">
+    		<title>Quoting Dojo!</title>
+		    <link rel="style" href="/static/style.css">
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+ 	<body>
+        <div id="wrapper">
+            <h1>Welcome to the Dojo Message Board</h1>
+            <br>
+
+            <h3>Post a Message to your Friends:</h3>
+            <form action="/post" method="post">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="text">Post a Message: </label>
+                    <textarea class="form-control" id="text" name="text" rows="3"></textarea>
+                </div>
+                <br>
+                    <button type="submit" class="btn btn-primary">Post Message</button>
+            </form>
+            <% for( let i = 0; i < all_posts.length; ++i ) { %>
+                <p><strong>Name:</strong> <%= all_posts[i].name %></p>
+                <p><strong>Message:</strong> <%= all_posts[i].text %></p>
+                <p>Date: <%= all_posts[i].date %></p>
+                    <% for(let j = 0; j < all_posts[i].comments.length; ++j) { %>
+
+                    <p><strong>Name:</strong> <%= all_posts[i].comments[j].name %></p>
+                    <p><strong>Comment:</strong> <%= all_posts[i].comments[j].text %></p>
+                    <% } %>
+                    <br>
+            <form action="/comment" method="post">
+                <input type="hidden" name="is" value="<%= all_posts[i]._id %>">
+                <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                <label for="text" >Comment:</label>
+                    <textarea class="form-control" name="text" id="text" placeholder="Enter comment"></textarea>
+                <button type="submit" class="btn btn-secondary btn-sm">Add Comment</button>
+            </form>
+            <% } %>
+        </div> <!-- end wrapper -->
+    </body>
+</html>
+
+<style media="screen">
+    #wrapper{
+        margin-top: 100px;
+        margin-left: 250px;
+        margin-right: 250px;
+        border: 1px solid black;
+        padding: 10px 10px 10px 10px;
+    }
+    h1 {
+        border-bottom: 1px solid black;
+    }
+    form{
+        display: block;
+    }
+</style>

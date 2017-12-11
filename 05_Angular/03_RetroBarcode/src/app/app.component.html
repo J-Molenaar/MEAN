@@ -1,0 +1,11 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <div *ngFor='let num of random_num' [ngStyle]="{
+    'background-color': colors[num],
+    'width': '10px',
+    'height': '200px',
+    'display':'inline-block'
+  }" ></div>

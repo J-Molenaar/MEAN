@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    		<meta charset="utf-8">
+    		<title>Great Number Game!</title>
+    		<script charset="utf-8"></script>
+		<link rel="style" href="/static/style.css">
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     	</head>
+ 	<body>
+        <div id="wrapper">
+            <h1>Welcome to the Great Numer Game:</h1>
+            <h4>I'm thinking of a number between 1-100...</h4>
+            <br>
+            <h4>Take a guess!</h4>
+            <% if(count == 0){ %>
+                <form action="/guess" method="post">
+                    <div class="col-xs-2">
+                    <input class="form-control" id="number" name="number" type="text">
+                    </div>
+                    <br><br><br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            <% } else {
+                if(number == answer){ %>
+                    <div class="correct">
+                        <h3><%= answer %> was my number!</h3>
+                        <button type="submit" class="btn btn-secondary"><a href="/reset">PlayAgain!</a></button>
+                    </div>
+                <% } else {
+                        if(number > answer){ %>
+                            <div class="incorrect">
+                                <h3>Too high! Try again...</h3>
+                            </div>
+
+                        <% } else{ %>
+                            <div class="incorrect">
+                                <h3>Too low! Try again...</h3>
+                            </div>
+                        <% } %>
+                        <form action="/guess" method="post">
+                            <div class="col-xs-2">
+                            <input class="form-control" id="number" name="number" type="text">
+                            </div>
+                            <br><br><br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                <% } %>
+            <% } %>
+        </div>
+  	</body>
+</html>
+
+<style media="screen">
+    #wrapper{
+        margin-top: 100px;
+        margin-left: 350px;
+        margin-right: 350px;
+    }
+    .correct h3{
+        color: green;
+    }
+    .incorrect h3{
+        color: red;
+    }
+</style>

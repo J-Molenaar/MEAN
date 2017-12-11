@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+      <script >
+        // 1) the following will come back unexpected token
+        // console.log(hello);
+        // var hello = ‘world’;
+
+        // 2)  the following will come back unexpected token
+        // var needle = ‘haystack’;
+        // test();
+        // function test(){
+        // 	var needle = ‘magnet’;
+        // 	console.log(needle);
+        // }
+
+        // 3)the following will come back unexpected token
+        // var brendan = ‘super cool’;
+        // function print(){
+        // 	brendan = ‘only okay’;
+        // 	console.log(brendan);
+        // }
+        // console.log(brendan);
+
+        // 4)the following will come back unexpected token
+        // var food = "chicken";
+        // console.log(food);
+        // eat();
+        // function eat(){
+        // 	food = ‘half-chicken’;
+        // 	console.log(food);
+        // 	var food = ‘gone’;
+        // }
+
+        // 5)the following will come back unexpected token. mean() called before defined
+        // mean();
+        // console.log(food);
+        // var mean = function() {
+        // 	food = "chicken";
+        // 	console.log(food);
+        // 	var food = "fish";
+        // 	console.log(food);
+        // }
+        // console.log(food);
+
+        // 6) this one should work
+        // console.log(genre);
+        //     var genre = "disco";
+        //     rewind();
+        //     function rewind() {
+        //     	genre = "rock";
+        //     	console.log(genre);
+        //     	var genre = "r&b";
+        //     	console.log(genre);
+        //     }
+        //     console.log(genre);
+        //
+        //
+        //     7)this one should work
+            dojo = "san jose";
+            console.log(dojo);
+            learn();
+            function learn() {
+            	dojo = "seattle";
+            	console.log(dojo);
+            	var dojo = "burbank";
+            	console.log(dojo);
+            }
+            console.log(dojo);
+      </script>
+  </body>
+</html>

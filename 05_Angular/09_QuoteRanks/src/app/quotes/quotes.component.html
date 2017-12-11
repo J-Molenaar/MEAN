@@ -1,0 +1,15 @@
+<h3>Add a Quote:</h3>
+<br>
+<div *ngFor="let quote of allQuotes" class="body">
+    <div class="quote_text">
+    <h4>Total Votes: {{quote.votes}}</h4>
+    <p>{{ quote.content }}</p>
+    <p>&nbsp;&nbsp;-&nbsp;{{ quote.author }}</p>
+    <br>
+    <div class="vote_button">
+        <button type="button" class="voteUp" (click)="upVote(quote.id)">Vote Up</button>
+        <button type="button" class="voteDown" (click)="downVote(quote.id)">Vote Down</button>
+        <button type="button" class="delete" (click)="delete(quote.id)">Delete</button>
+    </div>
+  </div>
+</div>

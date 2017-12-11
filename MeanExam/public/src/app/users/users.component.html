@@ -1,0 +1,22 @@
+<h3> Enter Your Name:</h3>
+<fieldset>
+
+  <div id="Registration">
+    <form #regForm="ngForm" (submit)="register()">
+      Name:<input
+        type="text"
+        name="firstname"
+        [(ngModel)]="regUser.firstname"
+        #firstname = "ngModel"
+        required
+        minlength = "2"
+      ><br><br>
+      <input
+        type="submit"
+        value="Register"
+        [disabled]="!regForm.form.valid"
+      ><br><br>
+    </form>
+  </div>
+
+</fieldset>

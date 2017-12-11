@@ -1,0 +1,34 @@
+<a [routerLink]="['/dashboard']">Go to Polls</a>
+
+<div *ngIf="currentItem">
+    <h3>{{currentItem.question}}</h3>
+    <h5>Click the vote button to choose one</h5>
+
+    <table>
+        <tr>
+            <th>Option</th>
+            <th>Current Count of Votes</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>{{currentItem.opt1}}</td>
+            <td>{{currentItem.opt1Votes}}</td>
+            <td><button (click)="voteUp(currentItem._id, 1)">Vote</button></td>
+        </tr>
+        <tr>
+            <td>{{currentItem.opt2}}</td>
+            <td>{{currentItem.opt2Votes}}</td>
+            <td><button (click)="voteUp(currentItem._id, 2)">Vote</button></td>
+        </tr>
+        <tr>
+            <td>{{currentItem.opt3}}</td>
+            <td>{{currentItem.opt3Votes}}</td>
+            <td><button (click)="voteUp(currentItem._id, 3)">Vote</button></td>
+        </tr>
+        <tr>
+            <td>{{currentItem.opt4}}</td>
+            <td>{{currentItem.opt4Votes}}</td>
+            <td><button (click)="voteUp(currentItem._id, 4)">Vote</button></td>
+        </tr>
+    </table>
+</div>

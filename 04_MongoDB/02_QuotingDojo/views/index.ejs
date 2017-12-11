@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    		<meta charset="utf-8">
+    		<title>Quoting Dojo!</title>
+		    <link rel="style" href="/static/style.css">
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+ 	<body>
+        <div id="wrapper">
+            <h1>Welcome to Quoting Dojo!</h1>
+            <br>
+            <form action="/quotes" method="post"> <!-- matches /result section on server.js -->
+              <div class="form-group">
+                <label for="user_name">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="comment">Comments (Optional)</label>
+                <small id="note" class="form-text text-muted">Tell us something awesome!</small>
+                <textarea class="form-control" id="quote" name="quote" rows="3"></textarea>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <br>
+            <p>Don't want to say something?</p>
+            <br>
+            <button href="/results" type="submit" class="btn btn-primary">Go Directly to Quotes</button>
+            <div id="for_errors">
+                <% if( typeof(errors) != "undefined" ) { %>
+                    <% for( var x in errors ) { %>
+                    <p class="flash"><%= errors[x].message %></p>
+                    <% } %>
+                <% } %>
+            </div>
+        </div> <!-- end wrapper -->
+    </body>
+</html>
+
+<style media="screen">
+    #wrapper{
+        margin-top: 100px;
+        margin-left: 350px;
+        margin-right: 350px;
+        border: 1px solid black;
+        padding: 10px 10px 10px 10px;
+    }
+    .flash{
+        color: red;
+    }
+</style>

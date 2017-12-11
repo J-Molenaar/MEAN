@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+	  <script>
+
+	  let students = [
+		  {"name": 'Remy', "cohort": 'Jan'},
+		  {"name": 'Genevieve', "cohort": 'March'},
+		  {"name": 'Chuck', "cohort": 'Jan'},
+		  {"name": 'Osmund', "cohort": 'June'},
+		  {"name": 'Nikki', "cohort": 'June'},
+		  {"name": 'Boris', "cohort": 'June'}
+		  ];
+		function student(){
+
+			var text = "";
+			for(var obj in students){
+				console.log(obj.name);
+				text +="Name: " + students[obj].name + "   Cohort: " + students[obj].cohort + "<br>";
+			}
+			document.write (text);
+		}
+		student();
+		 </script>
+		 <br>
+		  <script>
+		let users = { //contains two keys: employees & managers whose values are arrays full of objects
+		    employees: [
+		        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+		        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+		        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+		        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+		    ],
+		    managers: [
+		       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+		       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+		    ]
+		 };
+
+		 function user(){
+			 var text2 = ""
+			 var text3 = "";
+			for(let key in users){
+				console.log(key);
+				text2 += key.toUpperCase() + "<br>";
+
+				for (let person in users[key]){
+					console.log(users[key][person].first_name + " " + users[key][person].last_name);
+
+					text3 += users[key][person].first_name + " " + users[key][person].last_name + "<br>";
+				}
+			}
+			document.write (text2);
+			document.write (text3);
+		}
+		user();
+	  </script>
+  </body>
+</html>

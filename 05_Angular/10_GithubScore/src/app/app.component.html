@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+
+  <form (submit)="onSubmit()" >
+      <label for="username">Github Username</label>
+      <input type="text" name="username" required [(ngModel)]="user.username" #username="ngModel">
+      <br>
+      <button type="submit" class="btn btn-primary">Calculate Github Score</button>
+  </form>
+
+<h1>{{gitInfo.public_repos + gitInfo.followers}}</h1>
+<div class="red" *ngIf="gitInfo.public_repos + gitInfo.followers < 20"> Needs Work!</div>
+<div class="orange" *ngIf="gitInfo.public_repos + gitInfo.followers >= 20 && gitInfo.public_repos + gitInfo.followers < 50 "> A decent start!</div>
+<div class="black" *ngIf="gitInfo.public_repos + gitInfo.followers >= 50 && gitInfo.public_repos + gitInfo.followers < 100"> Doing good!</div>
+<div class="green" *ngIf="gitInfo.public_repos + gitInfo.followers >= 100 && gitInfo.public_repos + gitInfo.followers < 200"> Great Job</div>
+<div class="blue" *ngIf="gitInfo.public_repos + gitInfo.followers >= 200"> Github Master</div>

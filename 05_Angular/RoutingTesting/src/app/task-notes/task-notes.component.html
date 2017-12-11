@@ -1,0 +1,7 @@
+<p>
+  task-notes works!
+</p>
+{{currentNote}}
+
+<br>
+<a *ngFor="let note of notes; let i = index" [routerLink]="['/task', i ]"> Task{{i}} </a><br>

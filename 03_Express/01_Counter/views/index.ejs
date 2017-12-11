@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    	<meta charset="utf-8">
+    	<title></title>
+    	<script charset="utf-8"></script>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ 	</head>
+    <body>
+      		<h1>Counter: <%= count %></h1>
+
+            <form action="/count" method="POST">
+                <button type="submit" name="submit" value="add2">Add 2</button>
+                <button type="submit" name="submit" value="reset">Reset Counter</button>
+            </form>
+    </body>
+</html>

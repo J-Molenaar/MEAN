@@ -1,0 +1,111 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<!-- the values below come from the component.ts file! This is string interpolation
+Interpolation will not only evaluate the variable, but it will also evaluate calculations (line 12)  -->
+<h1>Interpolation</h1>
+<p>{{x}}</p>
+<p>{{myStr}}</p>
+<p>{{x+y}}</p>
+<p>{{user.firstName}} {{user.lastName}}</p>
+<br>
+// To inform Angular that we want it to evaluate the variable and then define the property, we put [ ] around the property. Ex: name[value]='number' will set the value property to 10
+<input [value]='number'>
+<br>
+//value='number' will set the value property to 'number'
+<input value='number'>
+<br>
+<h1>Pipes</h1>
+<h3>" | " is a pipe with tells the HTML what to print.</h3>
+<p>{{myStr | uppercase}}</p>
+<p>{{user | json}}</p>  json pipe used to print what is in the user object
+
+<h4>common pipes</h4>
+<ul>
+ <li>json</li>
+ <li>uppercase</li>
+ <li>lowercase</li>
+ <li>currency</li>
+ <li>date</li>
+ <li>time</li>
+ <li>datetime (datetime:'fulldate', date:'longDate', date:'shortDate', date:'mediumTime', date:'shortTime')</li>
+</ul>
+<br>
+<h1>Structural Directives: *ngif and *ngFor</h1>
+<li *ngFor="let num of myArr">
+{{num}}
+</li>
+<p *ngIf="myBoo">Say Hi!</p>
+<p *ngIf="!myBoo">Don't say Hi...</p>
+<p>OPTIONAL ALTERNATIVE: If we need the value of each element in the array, as well as the index in which we are currently on, we write the *ngFor a little differently as shown here:</p>
+
+<br>
+<h1>Style</h1>
+<span [ngStyle]="{
+  'background-color': 'green',
+  'font-weight': 'bold'
+}" >ngStyle</span>
+<span [ngStyle]="{
+  'background-color': color,
+  'font-weight': 'bold'
+}" >ngStyle w/Variable</span>
+<span class='blue'>Styling</span>
+<span [ngClass]="{ 'red': true, 'bold': false }">I should be red but not bolded.</span>
+<span [ngClass]="{'red': true, 'bold': true }">I should be red and bolded.</span>
+<span [ngClass]="{ 'on': switch }">I should be yellow.</span>
+<span [ngClass]="{ 'on': 1===1 }">I should be yellow.</span>
+<br>
+<h1>Event Listeners</h1>
+<button (click)='logNum()'>Log the num value: {{num}}</button>
+<button (click)='num = num + 1'>Increment num = {{num}}</button>
+<button (click)='addNum()'>Add Num Function = {{num}}</button>
+<button (click)='resetNum()'>Reset Num Function = {{num}}</button>
+<br>
+<h1>Forms</h1>
+<!-- <form (submit)="onSubmit()">
+    <input type="text" name="first"
+    [(ngModel)]="user2.first">
+    <input type="text" name="last"
+    [(ngModel)]="user2.last">
+    <input type="submit" value="submit">
+</form>
+<p>{{user2 | json}}</p> -->
+<br>
+<h1>Form Validations</h1>
+<form (submit)="onSubmit()">
+  <input
+    type="text"
+    name="username"
+    minlength = "4"
+    [(ngModel)]="user3.username"
+    #username="ngModel"
+    required
+  />
+  <input
+    type="email"
+    name="email"
+    [(ngModel)]="user3.email"
+    #email="ngModel"
+    required
+  />
+  <input
+    type="password"
+    name="password"
+    [(ngModel)]="user3.password"
+    #password="ngModel"
+    required
+  />
+  <input type="submit" value="submit">
+  <div *ngIf="!username.valid">
+      Error User Name
+  </div>
+</form>
+{{ username.errors | json }}
+{{ username.valid | json }}
+{{ email.errors | json }}
+{{ email.valid | json }}
+{{ password.errors | json }}
+{{ password.valid | json }}

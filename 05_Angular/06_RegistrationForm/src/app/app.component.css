@@ -1,0 +1,11 @@
+.wrapper{
+    margin-left: 400px;
+    margin-right: 400px;
+}
+span {
+    color: red;
+}
+.green{
+    background-color: green;
+    outline: 1px solid black;
+}

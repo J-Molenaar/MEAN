@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    		<meta charset="utf-8">
+    		<title>Herding Cats</title>
+		    <link rel="style" href="/static/style.css">
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+ 	<body>
+        <div id="wrapper">
+            <h1>Welcome to Herding Cats!</h1>
+            <br>
+            <h4>Meet the Cat Herd!</h4>
+            <p>Click on a cat to see more information:</p>
+
+            <div id="for_errors">
+              <% for( var i in all_cats ) { %>
+                  Name: <p><%= all_cats[i].cat_name %></p>
+                  <a href="/cat/<%= all_cats[i]._id %>"><img src="<%= all_cats[i].picture %>" height="170" width="150"></a>
+                  <% if( i < all_cats.length - 1 ) { %>
+                    <hr/>
+                  <% } %>
+              <% } %>
+            </div>
+
+            <a href="/new" type="submit" class="btn btn-primary">Add A Cat!</a>
+
+        </div> <!-- end wrapper -->
+    </body>
+</html>
+
+<style media="screen">
+    #wrapper{
+        margin-top: 100px;
+        margin-left: 350px;
+        margin-right: 350px;
+        border: 1px solid black;
+        padding: 10px 10px 10px 10px;
+    }
+    .flash{
+        color: red;
+    }
+</style>

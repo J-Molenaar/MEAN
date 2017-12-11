@@ -1,0 +1,50 @@
+<div class="wrapper">
+    <h3>Register</h3>
+
+    <form (submit)="register()" #regform="ngForm">
+        <div class="form-group">
+            <label for="first">First Name</label>
+            <input type="text" name="first" required minlength="1" [(ngModel)]="new_user.first" #first="ngModel" class="form-control" >
+            <span class="error" *ngIf="first.errors && (first.dirty || first.touched)">First Name is Required</span>
+        </div>
+        <div class="form-group">
+            <label for="last">Last Name</label>
+            <input type="text" name="last" required minlength="1" [(ngModel)]="new_user.last" #last="ngModel" class="form-control">
+            <span class="error" *ngIf="last.errors && (last.dirty || last.touched)">Last Name is Required</span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" name="email" required pattern="[\w\-\.\+]+\@[\w\-]+\.[a-zA-Z]+" [(ngModel)]="new_user.email" #email="ngModel" class="form-control" placeholder="someone@mail.com">
+            <span class="error" *ngIf="email.errors && (email.dirty || email.touched)">Email is Required</span>
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" required pattern="^([a-zA-Z0-9@*#]{4,15})$"  [(ngModel)]="new_user.password" #password="ngModel" class="form-control" >
+            <span class="error" *ngIf="!password.valid && password.dirty">Password must be at least 4 characters long</span>
+        </div>
+            <div class="form-group">
+            <label for="confirm">Confirm Password</label>
+            <input type="password" name="confirm" required [pattern]=new_user.password [(ngModel)]="new_user.confirm" #confirm="ngModel" class="form-control" >
+            <span *ngIf='!confirm.valid && confirm.dirty'>Password Confirmation must match Password </span>
+        </div>
+        <button type="submit" class="btn btn-danger" [disabled]='!regform.form.valid'>Register</button>
+    </form>
+
+    <h3>Login</h3>
+    <form (submit)="login()" #logform="ngForm">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" name="email" required pattern="[\w\-\.\+]+\@[\w\-]+\.[a-zA-Z]+" [(ngModel)]="user.email" #email="ngModel" class="form-control" placeholder="someone@mail.com">
+            <!-- <span class="error" *ngIf="email.errors && (email.dirty || email.touched)">Email is Required</span> -->
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" required pattern="^([a-zA-Z0-9@*#]{4,15})$" minlength="8" [(ngModel)]="user.password" #password="ngModel" class="form-control" >
+            <!-- <span class="error" *ngIf="password.errors && (password.dirty || password.touched)">Password must be at least 4 characters long</span> -->
+        </div>
+        <button type="submit" class="btn btn-danger" [disabled]='!logform.form.valid'>Login</button>
+    </form>
+
+</div>

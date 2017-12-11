@@ -1,0 +1,39 @@
+
+<html>
+  	<head>
+    		<meta charset="utf-8">
+    		<title></title>
+    		<script charset="utf-8"></script>
+		<link rel="style" href="/static/style.css">
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 	</head>
+ 	<body>
+        <body>
+            <div id="wrapper">
+                <h2>Submitted Information</h2>
+                <br>
+                    <p>Name: <%= form_data.name %></p>
+                    <p>Dojo Location: <%= form_data.location %></p>
+                    <p>Favorite Language: <%= form_data.language %></p>
+                    <p>Comment: <%= form_data.comment %></p>
+                <br>
+                <br>
+                <a href="/"><button class="form_result btn">Go Back</button></a>
+            </div> <!-- end wrapper div -->
+
+        </body>
+    </html>
+
+    <style media="screen">
+        #wrapper{
+            margin-top: 100px;
+            margin-left: 350px;
+            margin-right: 350px;
+            border: 1px solid black;
+            padding: 10px 10px 10px 10px;
+        }
+    </style>
+  	</body>
+</html>

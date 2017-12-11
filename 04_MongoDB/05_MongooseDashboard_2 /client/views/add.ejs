@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    		<meta charset="utf-8">
+    		<title>Herding Cats</title>
+		    <link rel="style" href="/static/style.css">
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+ 	<body>
+        <div id="wrapper">
+            <a href="/">Home</a>
+            <br>
+            <h1>Add a new Cat to the Herd of Cats!</h1>
+            <br>
+            <form action="/add" method="post"> <!-- matches /result section on server.js -->
+              <div class="form-group">
+                <label for="cat_name"> Name </label>
+                <input type="text" class="form-control" id="cat_name" name="cat_name">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="superpower"> Super Power </label>
+                <input type="text" class="form-control" id="superpower" name="superpower">
+              </div>
+              <br>
+              <div class="form-group">
+                  <label for="lives">Number of Lives</label>
+                  <select class="form-control" id="lives" name="lives">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                    </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="picture">Picture Link</label>
+                <input type="text" class="form-control" id="picture" name="picture">
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <br>
+            <div id="for_errors">
+                <% if( typeof(errors) != "undefined" ) { %>
+                    <% for( var x in errors ) { %>
+                    <p class="flash"><%= errors[x].message %></p>
+                    <% } %>
+                <% } %>
+            </div>
+        </div> <!-- end wrapper -->
+    </body>
+</html>
+
+<style media="screen">
+    #wrapper{
+        margin-top: 100px;
+        margin-left: 350px;
+        margin-right: 350px;
+        border: 1px solid black;
+        padding: 10px 10px 10px 10px;
+    }
+    .flash{
+        color: red;
+    }
+</style>

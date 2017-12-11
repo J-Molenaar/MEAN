@@ -1,0 +1,59 @@
+
+<html>
+  	<head>
+    	<meta charset="utf-8">
+    	<title></title>
+    	<script charset="utf-8"></script>
+
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ 	</head>
+ 	<body>
+        <div id="wrapper">
+            <h2>Complete the form:</h2> <br>
+            <form action="/result" method="post"> <!-- matches /result section on server.js -->
+              <div class="form-group">
+                <label for="user_name">Name</label>
+                <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="user_location">Location</label>
+                <select class="form-control" id="user_location" name="user_location">
+                  <option>Bellevue</option>
+                  <option>Chicago</option>
+                  <option>Dallas</option>
+                  <option>San Jose</option>
+                  <option>Washington DC</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="user_language">Favorite Language</label>
+                <select class="form-control" id="user_language" name="user_language">
+                  <option>JavaScript</option>
+                  <option>C#</option>
+                  <option>Python</option>
+                  <option>iOS</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="comment">Comments (Optional)</label>
+                <small id="note" class="form-text text-muted">Tell us something awesome!</small>
+                <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div> <!-- end wrapper div -->
+
+  	</body>
+</html>
+
+<style media="screen">
+    #wrapper{
+        margin-top: 100px;
+        margin-left: 350px;
+        margin-right: 350px;
+        border: 1px solid black;
+        padding: 10px 10px 10px 10px;
+    }
+</style>

@@ -1,0 +1,35 @@
+.wrapper{
+    width: 60%;
+    margin-left: 200px;
+}
+.body{
+    padding-top: 30px;
+
+}
+app-header{
+    border: 1px solid black;
+    width: 98%;
+    padding-left: 10px;
+    display: inline-block;
+    background-color: #a0c6f6;
+}
+app-nav{
+    border: 1px solid black;
+    width: 230px;
+    height: 346px;
+    padding-left: 10px;
+    margin-right: 34px;
+    vertical-align: top;
+    display: inline-block;
+    background-color: #a0c6f6;
+}
+
+app-main{
+    border: 1px solid black;
+    width: 65%;
+    height: 346px;
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #a0c6f6;
+}

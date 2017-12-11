@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    		<meta charset="utf-8">
+    		<title>Herding Cats</title>
+		    <link rel="style" href="/static/style.css">
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+ 	<body>
+        <div id="wrapper">
+            <a href="/">Home</a>
+            <br>
+            <h2>Meet <%= one_cat.cat_name %>!</h2>
+
+            <div id="for_errors">
+                  Name: <p><%= one_cat.cat_name %></p>
+                  Super Power: <p><%= one_cat.superpower %></p>
+                  Number of Lives: <p><%= one_cat.lives %></p>
+                  <img src="<%= one_cat.picture %>" height="270" width="250">
+            </div>
+            <br>
+            <h4>Edit Cat:</h4>
+            <br>
+            <form action="/edit/<%= one_cat._id %>" method="post"> <!-- matches /result section on server.js -->
+              <div class="form-group">
+                <label for="new_name"> Name </label>
+                <input type="text" class="form-control" id="new_name" name="new_name" value="<%= one_cat.cat_name%>">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="new_superpower"> Super Power </label>
+                <input type="text" class="form-control" id="new_superpower" name="new_superpower" value="<%= one_cat.superpower %>">
+              </div>
+              <br>
+              <div class="form-group">
+                  <label for="new_lives">Number of Lives</label>
+                  <select class="form-control" id="new_lives" name="new_lives">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                    </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="new_picture">Picture Link</label>
+                <input type="text" class="form-control" id="new_picture" name="new_picture" value = "<%= one_cat.picture %>">
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <br>
+            <a href="/destroy/<%= one_cat._id %>" type="submit" class="btn btn-warning">Destroy Cat!</a>
+
+
+            <!-- ADD DELETE BUTTON -->
+        </div> <!-- end wrapper -->
+    </body>
+</html>
+
+<style media="screen">
+    #wrapper{
+        margin-top: 100px;
+        margin-left: 350px;
+        margin-right: 350px;
+        border: 1px solid black;
+        padding: 10px 10px 10px 10px;
+    }
+    .flash{
+        color: red;
+    }
+</style>

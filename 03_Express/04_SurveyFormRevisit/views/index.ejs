@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>Survey Form</title>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js" charset="utf-8"></script>
+        <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            $(document). ready(function (){
+                const socket  = io. connect();
+                $('#submit').click(function(){
+                    socket.emit("button_clicked", {
+                        user_name: $("#user_name").val(),
+                        user_location: $("#user_location").val(),
+                        user_language: $("#user_language").val(),
+                        comment: $("#comment").val(),
+                    });
+                    $("#post_message").hide();
+                    console.log("button_clicked")
+                });
+                socket.on("post_message", function(data){
+                    $("#post_message").show();
+                    $("#message").empty();
+                    $("#message").append(data.message);
+                });
+                socket.on("lucky_number", function(data){
+                    $("#post_message").show();
+                    $("#lucky_number").empty();
+                    $("#lucky_number").append(data.lucky_number);
+                });
+            });
+        </script>
+
+    </head>
+ 	<body>
+        <div id="wrapper">
+            <div id="post_message">
+                <p id="message"> </p>
+                <p id="lucky_number"> </p>
+            </div>
+
+        <h2>Complete the form:</h2> <br>
+
+
+          <div class="form-group">
+            <label for="user_name">Name</label>
+            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <label for="user_location">Location</label>
+            <select class="form-control" id="user_location" name="user_location">
+              <option>Bellevue</option>
+              <option>Chicago</option>
+              <option>Dallas</option>
+              <option>San Jose</option>
+              <option>Washington DC</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="user_language">Favorite Language</label>
+            <select class="form-control" id="user_language" name="user_language">
+              <option>JavaScript</option>
+              <option>C#</option>
+              <option>Python</option>
+              <option>iOS</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comment">Comments (Optional)</label>
+
+            <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+          </div>
+          <button id="submit" class="btn btn-primary">Submit</button>
+
+
+    </body>
+</html>
+
+<style media="screen">
+    #wrapper{
+        margin-top: 100px;
+        margin-left: 350px;
+        margin-right: 350px;
+        border: 1px solid black;
+        padding: 10px 10px 10px 10px;
+    }
+    #post_message{
+        background-color: green;
+        color: white; 
+
+    }
+</style>
